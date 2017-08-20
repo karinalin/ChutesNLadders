@@ -1,0 +1,125 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
+
+public class WelcomePanel extends JPanel {
+  // instance vars
+  Player player1;
+  JButton submit;
+  JComboBox token;
+  JTextField name = new JTextField("");
+  String[] colors;
+  JPanel centerPanel;
+  
+  String playerName;
+  String tokenChoice;
+  
+  public boolean infoCollected = false;
+  
+  public WelcomePanel() {
+    setLayout(new BorderLayout());
+    
+    // creates the header and footer
+    JLabel topLine = new JLabel("Welcome to Chutes N Ladders!" + 
+                                  " Please fill out your information below.");
+    JLabel bottomLine = new JLabel("Made by Olivia, Karina, and Teresa!");
+    
+    // create the center panel
+    centerPanel = new JPanel();
+    
+    // create elements on the center panel
+    
+    // name
+    JLabel nameLabel = new JLabel("Player name: ");
+//    JTextField name =  new JTextField("hello");
+    name.setColumns(10);
+    
+    //token
+    JLabel tokenLabel = new JLabel("Player token: ");
+    colors = new String[5];
+    colors[0] = "choose token";
+    colors[1] = "red";
+    colors[2] = "blue";
+    colors[3] = "purple";
+    colors[4] = "goldenrod";
+    
+    // combo box for tokens
+    token = new JComboBox(colors);
+    token.addActionListener (new ComboBoxListener());
+
+    // submit button
+    submit = new JButton("submit");
+    submit.addActionListener(new ButtonListener());
+    
+    // add to panel
+    centerPanel.add(nameLabel);
+    centerPanel.add(name);
+    centerPanel.add(tokenLabel);
+    centerPanel.add(token);
+    centerPanel.add(submit);
+    // add everything 
+    add(topLine, BorderLayout.NORTH);
+    add(centerPanel, BorderLayout.CENTER);
+    add(bottomLine, BorderLayout.SOUTH);
+  }
+  
+  
+  
+  
+  // listener for combo boxes
+  private class ComboBoxListener implements ActionListener {
+    
+    //method taking in the values the user enters for each combo box
+    public void actionPerformed (ActionEvent event) {
+
+      tokenChoice = (String)token.getItemAt(token.getSelectedIndex());
+      System.out.println(tokenChoice);
+    }
+    
+  }
+  //listener for "submit" button
+  class ButtonListener implements ActionListener {
+    
+    public void actionPerformed (ActionEvent event) {
+      
+      if (event.getSource() == submit) {
+        System.out.println("You pressed submit");
+        String playerName = name.getText();
+        System.out.println(playerName);
+        
+        JLabel errorMessage = new JLabel("");
+        centerPanel.add(errorMessage);
+        
+        // we have to handle user errors better!
+        // is there a better way of doing this--from the TempGamePlayGUI?
+        
+        // if the user hasn't selected anything:
+        if (playerName.length() == 0 || tokenChoice == null) {
+          errorMessage.setText("Please submit a name.");
+        }
+        
+        // creates and shows other panels?? after the welcome panel...
+        player1 = new Player(playerName, tokenChoice);
+        JFrame mainFrame = new JFrame("Chutes n' Ladders");
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        try {
+        CnLGame game = new CnLGame(player1); 
+        JPanel mainPanel = new MainPanel(game);
+        
+        mainFrame.getContentPane().add(mainPanel);
+        }
+        catch (IOException ex) {}
+        mainFrame.pack();
+        mainFrame.setVisible(true);
+        
+      }
+    }
+  }
+  
+  
+  
+  
+  
+}

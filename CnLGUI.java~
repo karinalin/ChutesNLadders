@@ -1,0 +1,26 @@
+import java.io.*;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import javafoundations.exceptions.*;
+
+public class CnLGUI {
+  public static void main (String[] args) {
+    
+    // creates and shows a Frame 
+    JFrame frame = new JFrame("Testing");
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    
+    try {
+      
+      JPanel welcomePanel = new WelcomePanel();
+      frame.getContentPane().add(welcomePanel);
+      
+      frame.pack();
+      frame.setVisible(true);
+    }
+    catch (IOException ex) {
+    }
+    
+  }
+}

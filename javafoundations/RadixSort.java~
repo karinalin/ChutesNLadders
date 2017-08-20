@@ -1,0 +1,21 @@
+/* Olivia Salomon and Teresa Li
+ * CS 230 Lab 7
+ * 10/19/16
+ * Task 2
+ * RadixSort.java
+ */
+import java.util.Random;
+
+public class RadixSort {
+  private final int NUMBERLENGTH = 3;
+  private final int BASE = 10;
+  private Vector input, output;
+  
+  public RadixSort(){
+    
+    input.addElement(345);
+    input.addElement()
+  }
+
+
+}
