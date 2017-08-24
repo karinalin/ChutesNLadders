@@ -43,9 +43,9 @@ public class CnLGame {
 
 
         
-    board = new Board("board63.tgf");
+    board = new Board("data/board63.tgf");
     spinner = new Spinner();
-    questions = new QuestionHash("additionTables.csv");
+    questions = new QuestionHash("data/additionTables.csv");
   }
   
   /** 
@@ -294,19 +294,19 @@ public class CnLGame {
    * @return String image file name
    */
   public String getToken() {
-    String result = "";
+    String result = "imagecomponents/tokens/";
     
     if (player.getToken().equals("Purple Dot")) {
       
-      result = "circle.jpg";
+      result += "circle.jpg";
     }
     
     if (player.getToken().equals("Sunset")) {
-      result = "sunset.jpg";
+      result += "sunset.jpg";
     }
     
     if (player.getToken().equals("Harry Styles")) {
-      result = "harry_styles.jpg";
+      result += "harry_styles.jpg";
     }
     return result;
   }

@@ -168,7 +168,7 @@ public class QuestionHash{
   
   public static void main(String[] args) {
     try {
-      QuestionHash qHash = new QuestionHash("additionTables.csv");
+      QuestionHash qHash = new QuestionHash("data/additionTables.csv");
       
       for (int i=0; i<200; i++) {
         System.out.println(i + ": ");

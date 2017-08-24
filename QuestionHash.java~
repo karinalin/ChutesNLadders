@@ -1,5 +1,5 @@
 /* QuestionHash.java
- * @author Karina Lin, Olivia Salomon, Teresa Li
+ * @author Karina Lin
  * 
  * Generates hashtable of questions for gameplay.
  */
@@ -19,6 +19,7 @@ public class QuestionHash{
     * and fills a boolean array "visited" with false
     * 
     * @param fileName file from which hashtable is populated
+    * @throws IOException
     */
   public QuestionHash(String fileName) throws IOException{
     
@@ -77,6 +78,7 @@ public class QuestionHash{
     Random rand = new Random();
     
     int result = rand.nextInt(numElementsLeft);
+    System.out.println(result);
     
 //    while (visited[result] == true) {
       result = rand.nextInt(numElementsLeft);
@@ -96,10 +98,10 @@ public class QuestionHash{
 //    System.out.println(n);
     
     String qKey = keys[n];
-
+    System.out.println(qKey);
     
     String qValue = qHash.get(qKey);
-
+    System.out.println(qValue);
     
     String[] result = new String[2];
     

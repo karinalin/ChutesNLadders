@@ -69,7 +69,7 @@ public class Board {
   }
   
   public static void main(String[] args) {
-    Board board1 = new Board("board63.tgf");
+    Board board1 = new Board("data/board63.tgf");
     System.out.println(board1);
     
     System.out.println(board1.getType("1"));

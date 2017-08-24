@@ -7,6 +7,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+//import boardelements.*;
+
 
 
 public class MainPanel extends JPanel {
@@ -82,7 +84,7 @@ public class MainPanel extends JPanel {
     // make panel
     JPanel titlePanel = new JPanel();
     titlePanel.setLayout(new BorderLayout());
-    ImagePanel panel = new ImagePanel("titleImg.png");
+    ImagePanel panel = new ImagePanel("imagecomponents/graphics/titleImg.png");
     
     // add elements to title
     JLabel title = new JLabel("Chutes N Ladders!"); // we will want to format this!
@@ -138,7 +140,7 @@ public class MainPanel extends JPanel {
     
     for (int i=1; i<10; i++) { // creates and adds elements 001-009
       if (i != index){
-        String fileName = ("image_part_00" + i + ".jpg");
+        String fileName = ("imagecomponents/boardelements/image_part_00" + i + ".jpg");
         ImagePanel img = new ImagePanel(fileName);
         board.add(img);
       }
@@ -150,7 +152,7 @@ public class MainPanel extends JPanel {
     
     for (int i=10; i<65; i++) { // creates and adds elements 010-063 
       if (i != index){
-        String fileName = ("image_part_0" + i + ".jpg");
+        String fileName = ("imagecomponents/boardelements/image_part_0" + i + ".jpg");
         ImagePanel img = new ImagePanel(fileName);
         board.add(img);
       }
@@ -186,7 +188,7 @@ public class MainPanel extends JPanel {
     //create spinner icon
     spinnerPanel.setLayout(new BorderLayout());
     
-    ImageIcon spinnerIcon = new ImageIcon(new ImageIcon("spinner1.jpg").getImage().getScaledInstance(130, 130, Image.SCALE_DEFAULT));
+    ImageIcon spinnerIcon = new ImageIcon(new ImageIcon("imagecomponents/graphics/spinner1.jpg").getImage().getScaledInstance(130, 130, Image.SCALE_DEFAULT));
 
     JLabel spinnerImage = new JLabel();
     spinnerImage.setIcon(spinnerIcon);
@@ -364,7 +366,7 @@ public class MainPanel extends JPanel {
             JFrame congratsFrame = new JFrame("Game over!");
             congratsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             
-            ImagePanel congratsPanel = new ImagePanel("congratulations.png");
+            ImagePanel congratsPanel = new ImagePanel("imagecomponents/graphics/congratulations.png");
             congratsFrame.getContentPane().add(congratsPanel);
             
             congratsFrame.pack();
