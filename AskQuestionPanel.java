@@ -62,22 +62,10 @@ public class AskQuestionPanel extends JPanel {
       if (event.getSource() == submit) {
         String playerAnswer = response.getText();
         if (playerAnswer == answer) {
-//          JOptionPane.showMessageDialog(, "Correct!  Your token can advance.");
           correct = true;
-        }
-        else {
-//        JOptionPane.showMessageDialog(questionFrame, "Incorrect!  Your token will not advance.");
         }
 
         }
-       
-        
-        // see if they got the question right
-       
-        // if yes, then pop up: "Great!" and close the gui, move the player.. etc
-             // set "correct" = true;
-        // if no, then pop up: "That's wrong. You've lost a turn." and they lose their turn
-             // set "corrent" == false;
       }
     }
   
